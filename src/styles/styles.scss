@@ -1,0 +1,55 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./colors.scss";
+html,
+body {
+    background-color: $bg-light;
+}
+
+#menu {
+    background-color: $bg-menu;
+    padding: 10px;
+    margin: 0px;
+    color: $text-menu;
+    border-bottom: 10px solid $text-menu;
+}
+.titulo {
+    font-size: large;
+    font-weight: bold;
+}
+a:link {
+    text-decoration: none;
+    color: $link;
+}
+a:visited {
+    text-decoration: none;
+    color: $link;
+}
+a:hover {
+    text-decoration: none;
+    color: $link-hover;
+}
+a:active {
+    text-decoration: none;
+    color: $link;
+}
+.contenedor {
+    margin: 25px;
+    padding: 15px;
+    border-radius: 25px;
+    background-color: $white;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #ccc;
+}
+form {
+    background-color: $form-bg;
+    padding: 10px;
+    border-radius: 15px;
+}
+.invalid-field {
+    border-color: $invalid-color !important;
+    color: $invalid-color !important;
+    background-color: $invalid-bgcolor !important;
+}

@@ -1,0 +1,64 @@
+<div class="my-3">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table table-striped table-sm">
+                <thead class="thead-dark">
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col"></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of duties">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td class="text-right">
+                            <button class="btn btn-info btn-sm mr-2" (click)="editar(item.id)">
+                                Editar
+                            </button>
+                            <button class="btn btn-danger btn-sm" (click)="borrar(item.id)">
+                                Borrar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <button class="btn btn-primary btn-sm mr-2" (click)="nuevo()">Nuevo</button>
+            </div>
+            <div *ngIf="showForm">
+                <form [formGroup]="dutyForm" class="my-3">
+                    <h6>{{modeForm==='E'?'Editar':'Nuevo'}} Duty</h6>
+                    <hr />
+                    <div class="row mb-4">
+                        <div class="col-1 text-right">
+                            <label class="text-right">Id:</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control" formControlName="id">
+                        </div>
+                        <div class="col-2 text-right">
+                            <label class="text-right">Nombre:</label>
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control" formControlName="name"
+                                [ngClass]="{ 'invalid-field': submitted && f.name.errors }">
+                            <div *ngIf="submitted && f.name.errors" class="text-danger">
+                                <div *ngIf="f.name.errors.required">
+                                    Campo obligatorio
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4 text-right">
+                        <div class="col-11 text-right">
+                            <button class="btn btn-info btn-sm mr-2" (click)="aceptar()">Aceptar</button>
+                            <button class="btn btn-dark btn-sm" (click)="cancelar()">Cancelar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
